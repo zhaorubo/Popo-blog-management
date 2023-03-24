@@ -1,9 +1,9 @@
 import { defineStore } from 'pinia';
 
-export const useCounterStore = defineStore('counter', {
+export const useUserStore = defineStore('user', {
     state: () => {
         return {
-            count: 1
+            info: Object
         };
     }
 });

@@ -3,7 +3,8 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true, // 该属性要求所有文件都是 ES Module 模块。
   },
   "include": ["vite.config.ts"]
 }
