@@ -84,6 +84,7 @@ const loginHandler = async () => {
 
     if (result.code === 200) {
         storage.setItem('token', result.token);
+        storage.setItem('user', result.result[0]);
         router.push('/');
         userStore.info = result.result[0];
     }

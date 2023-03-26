@@ -1,22 +1,17 @@
 <template>
     <header>
-        <div class="menu-icon">
-            <Icon icon="icon-caidan" size="0.4rem"></Icon>
-        </div>
+        <el-icon :size="20" style="margin-left: 20px" class="hidden-sm-and-down" @click="clickHandler"><Menu /></el-icon>
         <div class="search">
-            <Icon icon="icon-sousuo" size="0.3rem"></Icon>
-            <input id="search" type="text" placeholder="Search something..." />
+            <el-icon :size="20"><Search /></el-icon>
+            <input type="text" placeholder="search something..." />
         </div>
-        <div class="user-container">
-            <div class="inform">
-                <Icon icon="icon-wenzhanghuoke-" size="0.4rem"></Icon>
-            </div>
+        <div class="user hidden-sm-and-down">
             <div class="user-message">
-                <div class="user-hand">
-                    <img src="" alt="" />
-                </div>
                 <div class="user-name">
-                    <p>Popo</p>
+                    <strong>{{ user.user_name }}</strong>
+                </div>
+                <div class="user-head-img">
+                    <el-avatar :icon="UserFilled" :src="user.user_head" />
                 </div>
             </div>
         </div>
@@ -24,47 +19,61 @@
 </template>
 
 <script lang="ts" setup>
-import Icon from '../Icon/Icon.vue';
+import { UserFilled } from '@element-plus/icons-vue';
+import { useMainStore } from '../store/index';
+import storage from '../utils/storage';
+const user: User = storage.getItem('user');
+const mainStore = useMainStore();
+const clickHandler = () => {
+    mainStore.isShow = !mainStore.isShow;
+    console.log(mainStore.isShow);
+};
 </script>
 
 <style lang="scss" scoped>
 header {
-    border-bottom: 0.01rem solid rgba(41, 41, 41, 0.11);
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    .menu-icon {
-        cursor: pointer;
-    }
     .search {
-        text-align: center;
-        margin-left: -1rem;
-        flex-grow: 0.6;
-
-        #search {
-            background: rgba(244, 246, 251, 1);
-            margin-left: 0.1rem;
+        width: 3rem;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0.2rem;
+        .el-icon {
+            margin-right: 0.1rem;
+        }
+        input {
+            width: 5rem;
+            height: 0.4rem;
+            background-color: transparent;
+            border: 0.01rem solid #fff;
+            color: #5f5959;
+            border-radius: 0.3rem;
+            padding: 0 0.2rem;
         }
     }
-    .user-container {
-        width: 3.32rem;
+    .user {
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        margin-right: 1rem;
         .user-message {
+            width: 3rem;
             display: flex;
-            width: 1.86rem;
-            align-items: center;
-            .user-hand {
-                width: 0.4rem;
-                height: 0.4rem;
-                margin-right: 0.25rem;
-                border-radius: 0.1rem;
-                background-color: #fff;
-            }
+            justify-content: space-around;
             .user-name {
-                color: rgba(14, 14, 25, 1);
-                width: 0.13rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.2rem;
+            }
+            .user-head-img {
+                width: 0.5rem;
+                height: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
     }

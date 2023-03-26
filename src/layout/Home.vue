@@ -16,23 +16,18 @@ import Sidebar from './Sidebar.vue';
 
 <style lang="scss" scoped>
 #home {
+    font-size: 0.2rem;
     display: flex;
-    background-color: #ffffff;
-    min-height: 100vh;
-}
-
-#sidebar {
-    background: rgba(244, 246, 251, 1);
-    width: 2.8rem;
-}
-#main {
-    width: 100%;
-    #header {
-        background: rgba(244, 246, 251, 1);
-        height: 0.96rem;
+    height: 100vh;
+    #sidebar {
+        width: 2.5rem;
     }
-    // #content {
-    //     // background-color: pink;
-    // }
+    #main {
+        width: 100%;
+        #header {
+            height: 0.6rem;
+            background-color: #fff;
+        }
+    }
 }
 </style>

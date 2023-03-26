@@ -3,7 +3,7 @@
 html {
   background-color: #fff;
   color: #000;
-  font-size: 16px;
+  font-size: 100px;
 }
 
 body,
@@ -192,9 +192,7 @@ sub {
 }
 
 html {
-  /* overflow-x: hidden; */
   height: 100%;
-  /* font-size: 50px; */
   -webkit-tap-highlight-color: transparent;
 }
 
